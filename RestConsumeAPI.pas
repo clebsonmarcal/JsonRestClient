@@ -1,6 +1,6 @@
 {
   Classe..: RestConsumeAPi
-  Autor...: Clebson Marçal - I3 Sistemas
+  Autor...: I3 Sistemas
   Objetivo: Classe de consumo usando o TRESTRequest
   Obs.....: Caso precisar adcionar algun recurso siga o padrão e não coloque nada
             que não seja nativo.
@@ -25,7 +25,7 @@ type
   function bodyclear(): TRESTRequest;
   function AddBodyJson(Value: TJSONObject): TRESTRequest; overload;
   function AddBodyJson(Value: string): TRESTRequest; overload;
-  function AddParameter(Resource, Value: string; const AKind: TRESTRequestParameterKind = pkGETorPOST;
+  function AddParameter(Resource, Value: string; {const} AKind: TRESTRequestParameterKind = pkGETorPOST;
   const AOptions: TRESTRequestParameterOptions = []) : TRESTRequest;
   function SendFile(AFile: Array of TFileName; AParamName: string = 'file'; AMethod: TRESTRequestMethod = rmPOST;
   AContentType: TRESTContentType = ctMULTIPART_FORM_DATA): string;
@@ -56,7 +56,7 @@ type
   {Metodo ExecutaMetodo: Executa o RESTRequest.Method  passando os paramentros Get,Put,Post,Delete,Patch  e retorna a resposta }
   function ExecutaMetodo(metodoRest : TTypeMetodo) : TRESTResponse;
   {Metodo AddParameter: adcionar Heardes no RESTRequest.AddParameter e passa os valores e paramentros de execução e retorna um RESTRequest }
-  function AddParameter(Resource, Value: string; const AKind: TRESTRequestParameterKind = pkGETorPOST;
+  function AddParameter(Resource, Value: string; {const} AKind: TRESTRequestParameterKind = pkGETorPOST;
   const AOptions: TRESTRequestParameterOptions = []): TRESTRequest;
   {Metodo SendFile: Usada para o envio de arquivos}
   function SendFile(AFile: Array of TFileName; AParamName: string = 'file'; AMethod: TRESTRequestMethod = rmPOST;
@@ -135,7 +135,7 @@ begin
 end;
 
 {TODO -oClebson Marçal -cRestConsumeAPi : function AddParameter: adcionar Heardes no RESTRequest.AddParameter e passa os valores e paramentros de execução e retorna um RESTRequest}
-function TRestConsumeAPI.AddParameter(Resource, Value: string; const AKind: TRESTRequestParameterKind = pkGETorPOST;
+function TRestConsumeAPI.AddParameter(Resource, Value: string; {const} AKind: TRESTRequestParameterKind = pkGETorPOST;
   const AOptions: TRESTRequestParameterOptions = []): TRESTRequest;
 begin
 
